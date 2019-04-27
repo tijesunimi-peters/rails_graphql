@@ -5,9 +5,9 @@ class ProductImageReader
   end
 
   def read_and_upload
-    create_product_and_image_directory
-
     return @image if File.exists? File.join(@image_directory, @image.name)
+    
+    create_product_and_image_directory
 
     File.open(File.join(@image_directory, @image.name), "wb") do |f|
       f.write(File.read(@image.path))
